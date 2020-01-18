@@ -6,7 +6,7 @@
 Summary:       Python bindings for CUPS
 Name:          python-cups
 Version:       1.9.63
-Release:       4%{?dist}
+Release:       6%{?dist}
 URL:           http://cyberelk.net/tim/software/pycups/
 Source:        http://cyberelk.net/tim/data/pycups/pycups-%{version}.tar.bz2
 Patch1:        python-cups-uris.patch
@@ -60,6 +60,12 @@ make install DESTDIR="%{buildroot}"
 %doc examples html
 
 %changelog
+* Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 1.9.63-6
+- Mass rebuild 2014-01-24
+
+* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 1.9.63-5
+- Mass rebuild 2013-12-27
+
 * Wed Jul 31 2013 Jiri Popelka <jpopelka@redhat.com> - 1.9.63-4
 - Fix getting of booleans.
 
