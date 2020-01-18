@@ -1,0 +1,14 @@
+diff -U0 pycups-1.9.63/ChangeLog.encoding pycups-1.9.63/ChangeLog
+diff -up pycups-1.9.63/cupsconnection.c.encoding pycups-1.9.63/cupsconnection.c
+--- pycups-1.9.63/cupsconnection.c.encoding	2013-04-12 11:35:20.604099365 +0100
++++ pycups-1.9.63/cupsconnection.c	2013-04-12 11:35:34.945163243 +0100
+@@ -129,6 +129,9 @@ UTF8_from_PyObj (char **const utf8, PyOb
+   else if (PyString_Check (obj)) {
+     const char *ret;
+     PyObject *unicodeobj = PyUnicode_FromEncodedObject (obj, NULL, NULL);
++    if (unicodeobj == NULL)
++      return NULL;
++
+     ret = UTF8_from_PyObj (utf8, unicodeobj);
+     Py_DECREF (unicodeobj);
+     return ret;

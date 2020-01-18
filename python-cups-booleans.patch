@@ -1,0 +1,21 @@
+From 2e0078c0bcc4f02aa904cac00028da43cb6f6862 Mon Sep 17 00:00:00 2001
+From: Jiri Popelka <jpopelka@redhat.com>
+Date: Wed, 31 Jul 2013 15:31:15 +0200
+Subject: [PATCH] Fix getting of boolean values.
+
+diff --git a/cupsconnection.c b/cupsconnection.c
+index d386e95..dda9789 100644
+--- a/cupsconnection.c
++++ b/cupsconnection.c
+@@ -641,7 +641,7 @@ PyObject_from_attr_value (ipp_attribute_t *attr, int i)
+     val = PyInt_FromLong (ippGetInteger (attr, i));
+     break;
+   case IPP_TAG_BOOLEAN:
+-    val = PyBool_FromLong (ippGetInteger (attr, i));
++    val = PyBool_FromLong (ippGetBoolean (attr, i));
+     break;
+   case IPP_TAG_RANGE:
+     lower = ippGetRange (attr, i, &upper);
+-- 
+1.8.3.1
+
